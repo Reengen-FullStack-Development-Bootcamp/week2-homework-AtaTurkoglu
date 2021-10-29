@@ -1,0 +1,153 @@
+[
+    {
+        "id":"1",
+        "name":"Lidya Sardes Hotel",
+        "location":"Salihli/Manisa",
+        "rating":"3",
+        "price":"250",
+        "images":[
+            "images/manisa/lidya1.jpg",
+            "images/manisa/lidya2.jpg",
+            "images/manisa/lidya3.jpg",
+            "images/manisa/lidya4.jpg",
+            "images/manisa/lidya5.jpg",
+            "images/manisa/lidya6.jpg",
+            "images/manisa/lidya7.jpg",
+            "images/manisa/lidya8.jpg",
+            "images/manisa/lidya9.jpg",
+            "images/manisa/lidya10.jpg"
+        ],
+        "features":{
+            "parking":"true",
+            "wifi":"true",
+            "pet":"false",
+            "gym":"true",
+            "seashore":"false",
+            "pool":"true",
+            "nosmoking":"true",
+            "airconditioner":"true",
+            "hottube":"true",
+            "spa":"true",
+            "tv":"true",
+            "casino":"false"
+        },
+        "descriptions":[
+            "Otelimiz Kültür ve Turizm Bakanlığına Bağlı Türkiye Turizm ve Geliştirme Ajansı tarafından önerilen, Türk Standartları Enstitüsü tarafından verilen, Güvenli Turizm Sertifikasına sahiptir",
+            "Kurşunlu Kaplıcaları’na açılan konumuyla huzurlu ortamı, çam ormanlarıyla çevrili doğal güzellikleri, muhteşem antik Lidya tarihi, zengin termal kaynakları ile kişiye özel termal dinlenme merkezidir.",
+            "Faustina Termal & Spa, ruh ve bedenin mükemmel uyumu yakaladığı, sizlere huzur ve yenilenme hissi yaşatacak bir yer. Stresinizden ve endişelerinizden arınıp yenilendiğinizi hissedeceksiniz",
+            "Lidya Ocakbaşı restoranımızda sevdiklerinizle kebap yemenin keyfini çıkarırken Türk mutfağı eşsiz lezzetlerini tadarak günün yorgunluğunu atmış olacaksınız."
+        ]
+    },
+    {
+        "id":"2",
+        "name":"Doubletree Hilton",
+        "location":"Kemer/Antalya",
+        "rating":"5",
+        "price":"1250",
+        "images":[
+            "images/kemer/hiltonkemer1.jpg",
+            "images/kemer/hiltonkemer2.jpg",
+            "images/kemer/hiltonkemer3.jpg",
+            "images/kemer/hiltonkemer4.jpg",
+            "images/kemer/hiltonkemer5.jpg",
+            "images/kemer/hiltonkemer6.jpg",
+            "images/kemer/hiltonkemer7.jpg"
+        ],
+        "features":{
+            "parking":"true",
+            "wifi":"true",
+            "pet":"false",
+            "gym":"true",
+            "seashore":"true",
+            "pool":"true",
+            "nosmoking":"true",
+            "airconditioner":"true",
+            "hottube":"true",
+            "spa":"true",
+            "tv":"true",
+            "casino":"false"
+        },
+        "descriptions":[
+            "Antalya’nın gözde tatil beldesi Kemer’de lüks tatil konsepti ile hizmet veren DoubleTree By Hilton Antalya Kemer, modern ve stil sahibi mekanlar ile özenli hizmet ve eğlenceyi buluşturuyor.",
+            "DoubleTree By Hilton Antalya Kemer, çakıl olan pırıl pırıl sahili ile ünlü Kemer’de, denize sıfır mesafede konumlanıyor. 100 metre uzunluğundaki özel plajında bulunan ferah dinlenme ve güneşlenme alanları ile tesis, misafirlerine tatil boyunca Akdeniz’in tadını doyasıya çıkarma imkanı veriyor. Tesiste ayrıca 4 kaydıraklı büyük bir yüzme havuzu, çocuk havuzu ve yarı açık tatlı su havuzu bulunuyor.",
+            "Tesisin farklı konseptlerde tasarlanmış odaları, nötr renklerin ağırlıkta olduğu modern bir dekorasyona sahip. Odalarda konforunuz için pek çok olanak sunuluyor.",
+            "Lezzet açısından da misafirlerine zengin bir dünya sunan DoubleTree By Hilton Antalya Kemer; 1 ana restoran, 1 snack restoran, BBQ A la Carte Restoran (Ücretli), Punch Sushi A la Carte Restoran (Ücretli), Turkish Cuisine A la Carte Restoran (Türk Mutfağ- Ücretli), Mediterranean A la Carte Restoran (Akdeniz Mutfağı - Ücretli) ve Steak House A la Carte Restoran (Steak ve Burger - Ücretli) olmak üzere 5 a la carte restoran ile hizmet veriyor. Ayrıca 6 bar, 3 konsept outlet ve 1 seyyar içecek arabası da mevcut.",
+            "Buna ek olarak, değişik çalışma saatlerinde hizmet veren ve tesisin farklı yerlerinde konumlandırılmış 10 adet seyyar yemek arabası ve 4 adet seyyar yemek kamyonu da misafirlere zengin tatlar sunuyor.",
+            "Sezon boyunca eğlencenin dorukta yaşanacağı DoubleTree By Hilton Antalya Kemer’de; animasyon ekibinin hazırladığı program kapsamında; gün boyu süren aktiviteler, profesyonel akşam şovları, canlı müzik grupları ve farklı konseptlerde partiler gerçekleşiyor. Çocuklar içinse Teddy & Bunny Club, gün boyu eğlenceli ve eğitici aktiviteler gerçekleştiriyor.",
+            "SPA merkezi, her biri kendi alanında profesyonel olan personelin uyguladığı masaj ve enerji terapileri, özel yüz ve vücut kozmetik bakım uygulamaları ile tatilde bedenen ve ruhen yenilenmenize yardımcı oluyor."
+        ]
+    },
+    {
+        "id":"3",
+        "name":"FourSeasons",
+        "location":"Limassol/Kıbrıs",
+        "rating":"5",
+        "price":"2600",
+        "images":[
+            "images/kibris/fourseasons1.jpg",
+            "images/kibris/fourseasons2.jpg",
+            "images/kibris/fourseasons3.jpg",
+            "images/kibris/fourseasons4.jpg",
+            "images/kibris/fourseasons5.jpg",
+            "images/kibris/fourseasons6.jpg",
+            "images/kibris/fourseasons7.jpg"
+        ],
+        "features":{
+            "parking":"true",
+            "wifi":"true",
+            "pet":"true",
+            "gym":"true",
+            "seashore":"true",
+            "pool":"true",
+            "nosmoking":"true",
+            "airconditioner":"true",
+            "hottube":"true",
+            "spa":"true",
+            "tv":"true",
+            "casino":"true"
+        },
+        "descriptions":[
+            "LED TV’s 49” & 55” with multi language channels and interactive guest services. Content sharing functionality with guest devices. Complimentary 10mbps Wi-Fi. Smart room technology with control tablet for: programmed lighting, room temperature, electric curtains, do not disturb & service room indicators. Telephone with voice mail, doorbell, hairdryer, large electronic safe, Mini Bar, Nespresso & Tea/Coffee making facilities. Bathrooms feature marble fittings, walk-in showers with Chroma therapy lights, privacy blinds, large mirrors, Plush Frette Bathrobes, slippers and Molton Brown amenities. All rooms feature Walk-in shower, or both bathtub and walk-in shower. ",
+            "Situated on the first floor this brand new luxury meeting room features an executive board table for up to 22 persons with enough technical back-up to satisfy the most demanding delegates.",
+            "Recently renovated, the Four Seasons Spa features superb luxury treatment rooms and a unique circular dedicated relaxation area. Offering both Anne Semonin and Aromatherapy Associates treatments to our guests within the same facility, the Four Seasons spa is indeed the most exclusive spa in Cyprus.",
+            "Two outdoor freshwater swimming pools one for “Adults Only”. Indoor pool heated all year with hydrotherapy. Sauna, two steam rooms & ICE room. Two floodlit tennis courts, fully equipped gym with personal trainer, aerobics & aqua classes, diving school with PADI approved instructor & water sports (March – November), activity programme.",
+            "Fully supervised by qualified personnel for children 3-8 years old. Open all year around. Operating hours: 10:00 hrs. – 17:00 hrs. in winter, 09:00 hrs. – 20:00 hrs. in summer & Kids Club, the longest operating periods in Cyprus.",
+            "24-hour room service, laundry service, hairdresser, foreign exchange, wheelchairs, medical service on call, covered & uncovered parking at no charge, complimentary electric vehicle charging, multi-lingual staff, reception safes for valuables, Internet facilities, secretarial service, twice daily maid service"
+        ]
+    },
+    {
+        "id":"4",
+        "name":"Voyage Torba",
+        "location":"Bodrum/Muğla",
+        "rating":"4",
+        "price":"900",
+        "images":[
+            "images/bodrum/voyagetorba1.jpg",
+            "images/bodrum/voyagetorba2.jpg",
+            "images/bodrum/voyagetorba3.jpg",
+            "images/bodrum/voyagetorba4.jpg",
+            "images/bodrum/voyagetorba5.jpg",
+            "images/bodrum/voyagetorba6.jpg",
+            "images/bodrum/voyagetorba7.jpg"
+        ],
+        "features":{
+            "parking":"true",
+            "wifi":"true",
+            "pet":"true",
+            "gym":"false",
+            "seashore":"true",
+            "pool":"true",
+            "nosmoking":"true",
+            "airconditioner":"true",
+            "hottube":"true",
+            "spa":"false",
+            "tv":"true",
+            "casino":"false"
+        },
+        "descriptions":[
+            "Bodrum’un en güzel koylarından biri olan Torba’da, düz bir arazi üzerinde yer alan Voyage Torba, misafirlerini Ultra Her Şey Dahil konseptte ağırlıyor. 24 saat hizmet veren Cuisine 24 ve 7 a la carte restoranı, konsept barları ve Degusto ana restoranıyla günün her saatinde enfes lezzetleri şık sofralarla buluşturan tesiste, minik misafirler için de çocuk büfesi imkanı bulunuyor. Özel iklimlendirme sistemi ile birbirinden şık restoranlarda tatilinize lezzet katabilirsiniz.",
+            "Tesise erken gelerek odasını, çıkış gününde ise transferini ya da uçak saatini bekleyenler için oluşturulan dinlenme alanı Comfort Zone, hem tatil öncesinde hem de tatil bitiminde Voyage ayrıcalığını yaşatacak. Ayrıca birbirinden özel masaj teknikleri, ruhunuzu yenileyen eşsiz bakımlar ve özenli bir hizmetle ağırlanacağınız Sense Spa'da yılın tüm yorgunluğundan arınabilirsiniz.",
+            "Yaz boyunca ünlü yıldızların ve şov gruplarının yer aldığı performanslar da sergileniyor. Çocuklar için sınırsız eğlence ve aktivite imkanı sunan tesiste, deneyimli eğitmenlerin hizmet verdiği bir mini kulübü bulunuyor."
+        ]
+    }
+]

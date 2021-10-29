@@ -1,18 +1,34 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HotelCard v-for="(hotel,index) in hotels" :key="index" :hotel="hotel"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import json from "@/assets/hotels.json"
+import HotelCard from '@/components/HotelCard.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    HotelCard
+  },
+  data(){
+    return{
+      hotels:JSON.parse(JSON.stringify(json))
+    }
   }
 }
 </script>
+
+<style>
+  .home{
+    padding-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>
