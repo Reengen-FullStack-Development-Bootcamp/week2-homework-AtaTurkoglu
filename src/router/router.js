@@ -8,6 +8,10 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path:"/*",
+    component: Home
+  },
+  {
     path: '/',
     name: 'Home',
     component: Home,
@@ -23,7 +27,7 @@ const routes = [
     name: 'Reservation',
     component: Reservation,
     props:true
-  },
+  }
 ]
 
 const router = new VueRouter({

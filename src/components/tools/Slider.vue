@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  export default {
+  export default {              //bootstrap-vue carausel
     props:["images"],
     data() {
       return {

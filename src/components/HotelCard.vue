@@ -30,7 +30,7 @@
             }
         },
         methods:{
-          toHotel(id){
+          toHotel(id){          //redirect to hotel page
             this.$router.push({ name: 'Hotel', params: { id: id } })
           }
         },

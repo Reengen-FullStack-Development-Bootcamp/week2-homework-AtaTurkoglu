@@ -1,23 +1,23 @@
 <template>
   <div class="reservation">
-      <div v-for="index in persons" :key="index">
+      <div v-for="index in guests" :key="index">
         <ReservationForm v-if="index<=submitted" :index="index" @submitted="submittedform" @payer="setPayer"/>
       </div>
-      <div v-if="submitted>persons" class="paymentbtn">
+      <div v-if="submitted>guests" class="paymentbtn">
         <img class="ccard" src="@/assets/creditcard.png">
         <p v-if="currency=='TL'" class="total">Total: {{price | TL}}</p>
         <p v-if="currency=='USD'" class="total">Total: {{price | USD}}</p>
-        <p v-if="currency=='Euro'" class="total">Total: {{price | EURO}}</p>
+        <p v-if="currency=='EURO'" class="total">Total: {{price | EURO}}</p>
         <b-button v-b-modal.modal class="info" variant="info" @click="pay">Pay</b-button>
       </div>
       <b-modal v-if="modal" id="modal" ok-only hide-header-close>
         <center><b-spinner class="spin" v-if="loading" variant="primary" label="Spinning"></b-spinner></center>
-        <center><p v-if="!loading" class="my-4">Congratulations {{ payer.name | toUpper }}</p></center>
-        <center><p v-if="!loading" class="my-4">Tel: {{payer.tel | tel}}</p></center>
-        <center><p v-if="!loading" class="my-4">Email: {{payer.email | email}}</p></center>
-        <center><p v-if="!loading&&currency=='TL'" class="my-4">You lost {{price | TL}} :)</p></center>
-        <center><p v-if="!loading&&currency=='USD'" class="my-4">You lost {{price | USD}} :)</p></center>
-        <center><p v-if="!loading&&currency=='EURO'" class="my-4">You lost {{price | EURO}} :)</p></center>
+        <center><p v-if="!loading" class="my-4"><strong>Congratulations {{ payer.name | toUpper }}</strong></p></center>
+        <center><p v-if="!loading" class="my-4"><strong>Tel: {{payer.tel | tel}}</strong></p></center>
+        <center><p v-if="!loading" class="my-4"><strong>Email: {{payer.email | email}}</strong></p></center>
+        <center><p v-if="!loading&&currency=='TL'" class="my-4"><strong>You lost {{price | TL}} :)</strong></p></center>
+        <center><p v-if="!loading&&currency=='USD'" class="my-4"><strong>You lost {{price | USD}} :)</strong></p></center>
+        <center><p v-if="!loading&&currency=='EURO'" class="my-4"><strong>You lost {{price | EURO}} :)</strong></p></center>
       </b-modal>
   </div>
 </template>
@@ -28,7 +28,7 @@ import ReservationForm from "@/components/ReservationForm.vue"
 import filters from "@/mixins/filters.js"
 export default {
 
-    props:["id","person","price","currency"],
+    props:["id","guests","price","currency"],
   
     mixins:[validations,filters],
   
@@ -38,30 +38,29 @@ export default {
     
     data(){
       return{
-        persons:this.person,
-        submitted:1,
+        submitted:1,            //number of submitted forms
         payer:{
           name:null,
           tel:null,
           email:null
         },
-        loading:false,
+        loading:false,          //loading spinner state
         modal:false
       }
     },
     
     methods:{
       submittedform(){
-        this.submitted++
+        this.submitted++        //increase submitted registration form
       },
-      pay(){
+      pay(){                    //pay and open modal 
         this.modal=true
         this.loading=true
         setTimeout(() => {
           this.loading=false
         }, 3000);
       },
-      setPayer(e){
+      setPayer(e){              //payer information for modal
         this.payer.name=e.name
         this.payer.tel=e.tel
         this.payer.email=e.email

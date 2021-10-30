@@ -11,7 +11,7 @@
 </template>
 
 <script>
-export default {
+export default {                //list items in comments and about sections in hotel page
     props:["items"]
 }
 </script>

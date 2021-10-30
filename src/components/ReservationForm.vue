@@ -73,8 +73,8 @@
                  :state="$v.form.tc.$error ? false : null"
                  lazy
                 ></b-form-input>
-                <i v-if="tc_eye" class="fas fa-eye eye" @click="eye=!eye,tc_type=''"></i>
-                <i v-if="!tc_eye" class="fas fa-eye-slash eye" @click="eye=!eye, tc_type='password'"></i>
+                <i v-if="tc_eye" class="fas fa-eye eye" @click="tc_eye=!tc_eye,tc_type=''"></i>
+                <i v-if="!tc_eye" class="fas fa-eye-slash eye" @click="tc_eye=!tc_eye, tc_type='password'"></i>
             </b-form-group>
 
             <b-form-group
@@ -93,8 +93,8 @@
                  :formatter="toUpper"
                  lazy
                 ></b-form-input>
-                <i v-if="hes_eye" class="fas fa-eye eye" @click="eye=!eye,hes_type=''"></i>
-                <i v-if="!hes_eye" class="fas fa-eye-slash eye" @click="eye=!eye, hes_type='password'"></i>
+                <i v-if="hes_eye" class="fas fa-eye eye" @click="hes_eye=!hes_eye,hes_type=''"></i>
+                <i v-if="!hes_eye" class="fas fa-eye-slash eye" @click="hes_eye=!hes_eye, hes_type='password'"></i>
             </b-form-group>
 
             <b-row class="w-100">
@@ -150,34 +150,34 @@ import {validations} from "@/mixins/validator.js"
 
     data() {
         return {
-            tc_eye:true,
-            tc_type:"password",
-            hes_eye:true,
-            hes_type:"password",
+            tc_eye:true,                  //for show-hide state in tc input value
+            tc_type:"password",          //for hiding tc input value
+            hes_eye:true,               //for show-hide state in hes input value
+            hes_type:"password",       //for hiding hes input value
         }
     },
 
     mounted(){
-        this.$refs[`form${this.index}`].focus()
+        this.$refs[`form${this.index}`].focus()     //focus name input on mounted
     },
 
     methods:{
-        onSubmit() {
+        onSubmit() {                        // submit form
             this.$v.$touch()
             if(!this.$v.$invalid){
-                this.$emit("submitted")
+                this.$emit("submitted")     //change number of submitted form in the parent component
                 if(this.index==1){
                     let obj = new Object({
                         name:this.$refs.form1.value,
                         tel:this.$refs.tel.value,
                         email:this.$refs.email.value
                     })
-                    this.$emit("payer",obj)
+                    this.$emit("payer",obj) //set payer information in the parent component
                 }
-                this.$refs[`btn${this.index}`].disabled=true
+                this.$refs[`btn${this.index}`].disabled=true //disable submit button on submitted form
             }
         },
-        toUpper(value){
+        toUpper(value){                     //Uppercase for hes bootstrap-vue input formatter
             return value.toUpperCase()
         },
     }

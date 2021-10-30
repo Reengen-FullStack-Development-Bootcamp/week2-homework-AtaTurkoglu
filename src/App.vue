@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Navbar/>
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
@@ -23,7 +25,7 @@ export default {
   color: #2c3e50;
   width: 100%;
   margin-inline: auto;
-  min-width: 1500px;
+  max-width: 1515px;
   min-height: 100vh;
   background-color: rgb(245,250,250);
 }

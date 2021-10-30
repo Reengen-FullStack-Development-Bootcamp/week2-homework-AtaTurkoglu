@@ -20,7 +20,7 @@
                 <b-row class="mt-3">
                     <div class="dpicker w-100 px-3 py-2">
                         <label for="example-datepicker">Check-in Date</label>
-                        <b-form-datepicker id="datepicker1" v-model="in_date" class="mb-2"></b-form-datepicker>
+                        <b-form-datepicker id="datepicker1" :min="new Date((new Date().getFullYear()),(new Date().getMonth()),(new Date().getDate()))" v-model="in_date" class="mb-2"></b-form-datepicker>
                     </div>
                 </b-row>
                 <b-row class="mt-3">
@@ -46,13 +46,13 @@
             </b-col>
             <b-col cols="2" class="m-0 p-0 h-100 d-flex flex-column align-items-center justify-content-between">
                 <b-row align-v="stretch" class="h-100" no-gutters>
-                    <i role="button" class="personbtn fas fa-user-plus fa-5x color" style="height:120px" @click="person++"></i>
+                    <i role="button" class="personbtn fas fa-user-plus fa-5x color" style="height:120px" @click="guests++"></i>
                 </b-row>
                 <b-row align-v="stretch" class="h-100" no-gutters>
-                    <i role="button" class="personbtn fas fa-user-minus fa-5x color" style="height:120px" @click="person--,person<=0?person=null:''"></i>
+                    <i role="button" class="personbtn fas fa-user-minus fa-5x color" style="height:120px" @click="guests--,guests<=0?guests=null:''"></i>
                 </b-row>
                 <b-row align-v="stretch" class="h-100" no-gutters>
-                    <div role="button" class="personbtn" style="height:120px; width:140px; font-weight:600; color:rgb(15,125,160); font-size:20px" @click="reservation()">Reservation <br> for {{person}}</div>
+                    <div role="button" class="reservationbtn" @click="reservation()">Reservation <br> for {{guests}}</div>
                 </b-row>
             </b-col>
         </b-row>
@@ -62,7 +62,9 @@
                     <b-tab title="About">
                         <ListGroup :items="hotel.descriptions"/>
                     </b-tab>
-                    <b-tab title="Comments"><p>I'm the second tab</p></b-tab>
+                    <b-tab title="Comments">
+                        <ListGroup :items="hotel.comments"/>
+                    </b-tab>
                 </b-tabs>
             </div>
         </b-row>
@@ -89,11 +91,11 @@ export default {
     data() {
         return {
             hotel:JSON.parse(JSON.stringify(json)).find(hotel=>hotel.id==this.id),
-            person:null,
-            in_date:null,
-            out_date:null,
+            guests:null,                    //number of guests
+            in_date:null,                   //check in date
+            out_date:null,                  //check out date
             currency:"TL",
-            options:[
+            options:[                       //currency select options
                 {value: "TL", text: 'TL'},
                 {value: "USD", text: 'USD'},
                 {value: "EURO", text: 'EURO'}
@@ -101,14 +103,14 @@ export default {
         }
     },
     computed:{
-        totalPrice(){
-            if(this.in_date&&this.out_date&&this.person>0){
+        totalPrice(){                   //calculate total price
+            if(this.in_date&&this.out_date&&this.guests>0){
                 if(this.currency=="USD"){
-                    return (this.calcDays(this.in_date,this.out_date)*this.person*this.hotel.price/11.11).toFixed(2)
+                    return (this.calcDays(this.in_date,this.out_date)*this.guests*this.hotel.price/11.11).toFixed(2)
                 }else if(this.currency=="EURO"){
-                    return (this.calcDays(this.in_date,this.out_date)*this.person*this.hotel.price/9.6).toFixed(2)
+                    return (this.calcDays(this.in_date,this.out_date)*this.guests*this.hotel.price/9.6).toFixed(2)
                 }else{
-                    return this.calcDays(this.in_date,this.out_date)*this.person*this.hotel.price
+                    return this.calcDays(this.in_date,this.out_date)*this.guests*this.hotel.price
                 }
             }else{
                 return null
@@ -116,14 +118,14 @@ export default {
         }
     },
     methods:{
-        reservation(){
-            if(this.person>0){
-                this.$router.push({ name: 'Reservation', params:{person:this.person,price:this.totalPrice,currency:this.currency}})
+        reservation(){                     //redirect to reservation page
+            if(this.guests>0){
+                this.$router.push({ name: 'Reservation', params:{guests:this.guests,price:this.totalPrice,currency:this.currency}})
             }else{
                 alert("Add a Person")
             }
         },
-        calcDays(first,second){
+        calcDays(first,second){            // calculate days of stay
             const oneDay = 24 * 60 * 60 * 1000
             const firstDate = new Date(first);
             const secondDate = new Date(second);
@@ -134,9 +136,6 @@ export default {
 </script>
 
 <style>
-    .brdr{
-        border: 1px solid red;
-    }
     .cont{
         height: 100%;
         width: 100%;
@@ -178,6 +177,49 @@ export default {
     .personbtn:hover{
         box-shadow: -3px -3px 5px white inset, 3px 3px 5px rgb(220, 220, 220) inset;
         animation: shdw .15s linear;
+    }
+    .reservationbtn{
+        padding-inline: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        background-color: rgb(15, 125, 160);
+        color: whitesmoke;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: -3px -3px 5px white, 3px 3px 5px rgb(220, 220, 220);
+        height:120px; 
+        width:140px; 
+        font-weight:600; 
+        font-size:20px
+    }
+    .reservationbtn:hover{
+        box-shadow: -3px -3px 5px white inset, 3px 3px 5px rgb(220, 220, 220) inset;
+        animation: shdw .15s linear;
+    }
+    .br1, .br2, .br3, .br4{
+        position: relative;
+    }
+    .br1::after{
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        border-top: 3px solid rgb(15, 125, 160);
+        animation: top linear 1s;
+    }
+    .br2::after{
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        border-right: 3px solid rgb(15, 125, 160);
+        animation: side linear 1s;
+        animation-delay: 1s;
     }
     .hotelimg{
         border-radius: 5px;
@@ -235,6 +277,39 @@ export default {
         }
         100%{
             box-shadow: -3px -3px 5px white inset, 3px 3px 5px rgb(220, 220, 220) inset;
+        }
+    }
+    @keyframes show{
+        0%{
+            box-shadow: -3px -3px 20px -8px rgb(15, 125, 160), 3px 3px 20px -8px rgb(15, 125, 160);
+        }
+        25%{
+            box-shadow: -3px -3px 22px -6px rgb(15, 125, 160), 3px 3px 2px -6px rgb(15, 125, 160);
+        }
+        50%{
+            box-shadow: -3px -3px 24px -4px rgb(15, 125, 160), 3px 3px 4px -4px rgb(15, 125, 160);
+        }
+        75%{
+            box-shadow: -3px -3px 26px -2px rgb(15, 125, 160), 3px 3px 6px -2px rgb(15, 125, 160);
+        }
+        100%{
+            box-shadow: -3px -3px 28px rgb(15, 125, 160), 3px 3px 8px rgb(15, 125, 160);
+        }
+    }
+    @keyframes top{
+        from{
+            width: 0;
+        }
+        to{
+            width: 100%;
+        }
+    }
+    @keyframes side{
+        from{
+            height: 0;
+        }
+        to{
+            height: 100%;
         }
     }
 </style>
