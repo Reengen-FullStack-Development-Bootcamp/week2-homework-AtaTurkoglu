@@ -95,8 +95,6 @@
             
             mouse_move(event){     
                 let slider = this.$refs.slider_ref
-                let left_arrow = this.$refs.slider_left_ref
-                let right_arrow = this.$refs.slider_right_ref
 
                 slider.style.scrollBehavior="unset"
                 event.target.draggable=false
@@ -107,52 +105,36 @@
                     slider.scrollLeft-=event.movementX
                 }
                 
-
                 //show-hide arrows at the borders
-                let diff_width = slider.scrollWidth-slider.clientWidth
-                
-                if(slider.scrollLeft<slider.clientWidth*0.05){
-                    left_arrow.style.display="none"
-                }else if(slider.scrollLeft>diff_width-slider.clientWidth*0.05){
-                    right_arrow.style.display="none"
-                    left_arrow.style.display="flex"
-                }else{
-                    left_arrow.style.display="flex"
-                    right_arrow.style.display="flex"
-                }
+                this.arrows()
             },
 
             left(){
                 let slider = this.$refs.slider_ref
-                let left_arrow = this.$refs.slider_left_ref
-                let right_arrow = this.$refs.slider_right_ref
 
                 //click&scroll
                 slider.style.scrollBehavior="smooth"
                 slider.scrollLeft-=200
 
                 //show-hide arrows at the borders
-                let diff_width = slider.scrollWidth-slider.clientWidth
-                
-                if(slider.scrollLeft<slider.clientWidth*0.05){
-                    left_arrow.style.display="none"
-                }else if(slider.scrollLeft>diff_width-slider.clientWidth*0.05){
-                    right_arrow.style.display="none"
-                    left_arrow.style.display="flex"
-                }else{
-                    left_arrow.style.display="flex"
-                    right_arrow.style.display="flex"
-                }
+                this.arrows()
             },
 
             right(){
                 let slider = this.$refs.slider_ref
-                let left_arrow = this.$refs.slider_left_ref
-                let right_arrow = this.$refs.slider_right_ref
 
                 //click&scroll
                 slider.style.scrollBehavior="smooth"
                 slider.scrollLeft+=200
+
+                //show-hide arrows at the borders
+                this.arrows()
+            },
+
+            arrows(){
+                let slider = this.$refs.slider_ref
+                let left_arrow = this.$refs.slider_left_ref
+                let right_arrow = this.$refs.slider_right_ref
 
                 //show-hide arrows at the borders
                 let diff_width = slider.scrollWidth-slider.clientWidth
