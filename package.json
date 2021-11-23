@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
@@ -22,13 +23,18 @@
     "vuelidate": "^0.7.6"
   },
   "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
+    "commitizen": "^4.2.4",
+    "commitlint-config-gitmoji": "^2.2.5",
+    "cz-customizable": "^6.3.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "husky": "^7.0.0",
     "sass": "^1.26.11",
     "sass-loader": "^10.0.2",
     "vue-cli-plugin-bootstrap-vue": "~0.8.2",
@@ -52,5 +58,10 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "cz-customizable"
+    }
+  }
 }
