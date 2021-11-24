@@ -1,57 +1,68 @@
 <template>
-    <div class="cont d-flex flex-column mt-4">
-        <b-row align-v="center" class="d-flex flex-row align-items-end mt-2 mb-5 w-50" no-gutters>
-            <b-col cols="6" class="d-flex align-items-center justify-content-start">
+    <b-container fluid class="fit-content h-75">
+        <!--
+        <b-row cols="1" align-v="center" class="d-flex flex-row align-items-end mt-2 mb-5 w-100">
+            <b-col cols="10" class="d-flex align-items-center justify-content-start">
                 <p class="hotelname">{{hotel.name}}</p>
             </b-col>
-            <b-col cols="6" class="d-flex align-items-center justify-content-start">
+            <b-col cols="10" class="d-flex align-items-center justify-content-start">
                 <i class="fa fa-map-marker fa-lg mr-2" aria-hidden="true"></i>
                 <p class="hotellocation">{{hotel.location}}</p>
             </b-col>
         </b-row>
-        <b-row class="d-flex d-row justify-content-center align-items-start h-100" style="height:500px" no-gutters>
-            <b-col cols="5" class="m-0 p-0">
+        -->
+        <b-row cols="1" class="d-flex justify-content-center justify-content-lg-start mt-3 mb-3">
+            <b-col cols="10" class="d-flex align-items-center justify-content-center justify-content-lg-start mb-3">
+                <p class="hotelname">{{hotel.name}}</p>
+            </b-col>
+            <b-col cols="10" class="d-flex align-items-center justify-content-start">
+                <i class="fa fa-map-marker fa-lg mr-2" aria-hidden="true"></i>
+                <p class="hotellocation">{{hotel.location}}</p>
+            </b-col>
+        </b-row>
+        <b-row cols="1" cols-lg="3" class="d-flex justify-content-center">
+            <b-col cols="10" lg="5" class="mb-5">
                 <Carousel :images="hotel.images" class="hotelimg"/>
             </b-col>
-            <b-col cols="5" class="m-0 p-0 pl-5">
+            <b-col cols="10" sm="7" lg="5" class="h-100 px-4 mb-5">
                 <b-row>
                     <SlideItems :hotel="hotel"/>
                 </b-row>
-                <b-row class="mt-3">
-                    <div class="dpicker w-100 px-3 py-2">
+                <b-row class="h-25 mt-4">
+                    <div class="dpicker w-100 px-3 pt-3">
                         <label for="example-datepicker">Check-in Date</label>
                         <b-form-datepicker id="datepicker1" :min="new Date((new Date().getFullYear()),(new Date().getMonth()),(new Date().getDate()))" v-model="in_date" class="mb-2"></b-form-datepicker>
                     </div>
                 </b-row>
-                <b-row class="mt-3">
-                    <div class="dpicker w-100 px-3 py-2">
+                <b-row class="h-25 mt-3">
+                    <div class="dpicker w-100 px-3 pt-3">
                         <label for="example-datepicker">Check-out Date</label>
                         <b-form-datepicker id="datepicker2" v-model="out_date" class="mb-2"></b-form-datepicker>
                     </div>
                 </b-row>
-                <b-row>
+                <b-row class="h-25 mt-4">
                     <b-col cols="8" class="m-0 p-0 pr-3">
-                        <div v-if="totalPrice==null" class="calcPrice mt-3" style="font-size:15px">Choose dates and guests</div>
+                        <div v-if="totalPrice==null" class="calcPrice" style="font-size:15px">Choose dates and guests</div>
                         <div v-if="totalPrice&&currency=='TL'" class="calcPrice mt-3">{{totalPrice | TL}}</div>
                         <div v-if="totalPrice&&currency=='USD'" class="calcPrice mt-3">{{totalPrice | USD}}</div>
                         <div v-if="totalPrice&&currency=='EURO'" class="calcPrice mt-3">{{totalPrice | EURO}}</div>
                     </b-col>
                     <b-col cols="4" class="m-0 p-0">
-                        <div class="curr mt-3 px-4">
-                            <label class="">Select a Currency</label>
+                        <div class="curr px-4">
+                            <label class="">Select Currency</label>
                             <b-form-select role="button" v-model="currency" :options="options" size="sm" class="m-0 w-100"></b-form-select>
                         </div>
                     </b-col>
                 </b-row>
             </b-col>
-            <b-col cols="2" class="m-0 p-0 h-100 d-flex flex-column align-items-center justify-content-between">
-                <b-row align-v="stretch" class="h-100" no-gutters>
-                    <i role="button" class="personbtn fas fa-user-plus fa-5x color" style="height:120px" @click="guests++"></i>
+            <b-col cols="10" sm="3" lg="2" class="passengers p-0 mb-5">
+                <b-row no-gutters align-h="center" class="btnrow">
+                    <i role="button" class="personbtn fas fa-user-plus fa-4x color" @click="guests++"></i>
                 </b-row>
-                <b-row align-v="stretch" class="h-100" no-gutters>
-                    <i role="button" class="personbtn fas fa-user-minus fa-5x color" style="height:120px" @click="guests--,guests<=0?guests=null:''"></i>
+                <b-row no-gutters align-h="center" class="btnrow">
+                    <i role="button" class="personbtn fas fa-user-minus fa-4x color" @click="guests--,guests<=0?guests=null:''"></i>
                 </b-row>
-                <b-row align-v="stretch" class="h-100" no-gutters>
+                <b-row no-gutters align-h="center" class="btnrow">
                     <div role="button" class="reservationbtn" @click="reservation()">Reservation <br> for {{guests}}</div>
                 </b-row>
             </b-col>
@@ -68,7 +79,7 @@
                 </b-tabs>
             </div>
         </b-row>
-    </div>
+    </b-container>
 </template>
 
 <script>
@@ -165,22 +176,37 @@ export default {
         align-items: center;
         justify-content: center;
     }
+    .passengers{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .btnrow{
+        margin: 0;
+        margin-inline: auto;
+        padding: 0;
+        height: auto;
+        width:80%;
+        height: 30%;
+    }
     .personbtn{
-        padding-inline: 20px;
-        margin-bottom: 20px;
+        margin-inline: auto;
+        padding:0;
         border-radius: 5px;
         box-shadow: -3px -3px 5px white, 3px 3px 5px rgb(220, 220, 220);
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 100%;
+        height: 100%;
     }
     .personbtn:hover{
         box-shadow: -3px -3px 5px white inset, 3px 3px 5px rgb(220, 220, 220) inset;
         animation: shdw .15s linear;
     }
     .reservationbtn{
-        padding-inline: 20px;
-        margin-bottom: 20px;
+        margin-inline: auto;
+        padding:0;
         border-radius: 5px;
         background-color: rgb(15, 125, 160);
         color: whitesmoke;
@@ -188,10 +214,10 @@ export default {
         align-items: center;
         justify-content: center;
         box-shadow: -3px -3px 5px white, 3px 3px 5px rgb(220, 220, 220);
-        height:120px; 
-        width:140px; 
         font-weight:600; 
-        font-size:20px
+        font-size:20px;
+        width: 100%;
+        height: 100%;
     }
     .reservationbtn:hover{
         box-shadow: -3px -3px 5px white inset, 3px 3px 5px rgb(220, 220, 220) inset;
@@ -310,6 +336,21 @@ export default {
         }
         to{
             height: 100%;
+        }
+    }
+
+
+    @media screen and (max-width:576px) {
+        .passengers{
+            flex-direction: row;
+            height: 100px;
+        }
+        .btnrow{
+            width:30%;
+            height: 100%;
+        }
+        .reservationbtn{
+            font-size: 15px;
         }
     }
 </style>

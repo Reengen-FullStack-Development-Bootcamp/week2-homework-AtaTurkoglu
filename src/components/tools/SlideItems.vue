@@ -156,6 +156,7 @@
 
 <style scoped>
 .slideitems{
+    width:100%;
     position: relative;
     box-shadow: -3px -3px 5px white, 3px 3px 5px rgb(220, 220, 220);
     border-radius: 8px;

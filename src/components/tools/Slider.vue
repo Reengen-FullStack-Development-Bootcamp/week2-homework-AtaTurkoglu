@@ -44,8 +44,8 @@
 
 <style>
     .slider{
-        height: 400px;
-        width: 600px;
+        max-height: fit-content;
+        max-width: 100%;
         overflow: hidden;
     }
     .slider-img{
