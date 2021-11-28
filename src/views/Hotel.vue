@@ -1,16 +1,5 @@
 <template>
     <b-container fluid class="fit-content h-75">
-        <!--
-        <b-row cols="1" align-v="center" class="d-flex flex-row align-items-end mt-2 mb-5 w-100">
-            <b-col cols="10" class="d-flex align-items-center justify-content-start">
-                <p class="hotelname">{{hotel.name}}</p>
-            </b-col>
-            <b-col cols="10" class="d-flex align-items-center justify-content-start">
-                <i class="fa fa-map-marker fa-lg mr-2" aria-hidden="true"></i>
-                <p class="hotellocation">{{hotel.location}}</p>
-            </b-col>
-        </b-row>
-        -->
         <b-row cols="1" class="d-flex justify-content-center justify-content-lg-start mt-3 mb-3">
             <b-col cols="10" class="d-flex align-items-center justify-content-center justify-content-lg-start mb-3">
                 <p class="hotelname">{{hotel.name}}</p>
@@ -43,9 +32,9 @@
                 <b-row class="h-25 mt-4">
                     <b-col cols="8" class="m-0 p-0 pr-3">
                         <div v-if="totalPrice==null" class="calcPrice" style="font-size:15px">Choose dates and guests</div>
-                        <div v-if="totalPrice&&currency=='TL'" class="calcPrice mt-3">{{totalPrice | TL}}</div>
-                        <div v-if="totalPrice&&currency=='USD'" class="calcPrice mt-3">{{totalPrice | USD}}</div>
-                        <div v-if="totalPrice&&currency=='EURO'" class="calcPrice mt-3">{{totalPrice | EURO}}</div>
+                        <div v-if="totalPrice&&currency=='TL'" class="calcPrice">{{totalPrice | TL}}</div>
+                        <div v-if="totalPrice&&currency=='USD'" class="calcPrice">{{totalPrice | USD}}</div>
+                        <div v-if="totalPrice&&currency=='EURO'" class="calcPrice">{{totalPrice | EURO}}</div>
                     </b-col>
                     <b-col cols="4" class="m-0 p-0">
                         <div class="curr px-4">

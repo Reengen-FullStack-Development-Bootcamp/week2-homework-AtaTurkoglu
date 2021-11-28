@@ -76,6 +76,7 @@ export default {
     flex-direction: row;
     justify-content: start;
     align-items: center;
+    flex-wrap: wrap;
   }
   .paymentbtn{
     margin: 20px;
